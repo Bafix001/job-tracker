@@ -20,3 +20,9 @@ server:
   port: 8080
   servlet:
     context-path: /api
+
+app:
+  jwt:
+    secret: "change_this_to_a_strong_secret"
+    accessExpirationSeconds: 900
+    refreshExpirationSeconds: 1209600

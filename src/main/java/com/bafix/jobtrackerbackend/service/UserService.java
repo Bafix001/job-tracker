@@ -52,4 +52,8 @@ public class UserService {
         return userResponseDto;
     }
 
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email).orElse(null);
+    }
+
 }
