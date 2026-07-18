@@ -24,10 +24,22 @@ class AuthControllerTest {
     @Mock
     private UserService userService;
 
+    @Mock
+    private org.springframework.security.authentication.AuthenticationManager authenticationManager;
+
+    @Mock
+    private com.bafix.jobtrackerbackend.security.JwtService jwtService;
+
+    @Mock
+    private com.bafix.jobtrackerbackend.service.auth.RefreshTokenService refreshTokenService;
+
+    @Mock
+    private org.springframework.security.crypto.password.PasswordEncoder passwordEncoder;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        AuthController controller = new AuthController(userService);
+        AuthController controller = new AuthController(userService, authenticationManager, jwtService, refreshTokenService, passwordEncoder);
         mockMvc = MockMvcBuilders.standaloneSetup(controller)
                 .setControllerAdvice(new GlobalExceptionHandler())
                 .build();
