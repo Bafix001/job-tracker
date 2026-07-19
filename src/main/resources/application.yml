@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://db:5432/jobtrackerdb}
+    username: ${SPRING_DATASOURCE_USERNAME:admin}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+flyway:
+  enabled: true
+
+app:
+  jwt:
+    # Set via env APP_JWT_SECRET (no default). In production, set this secret securely.
+    secret: ${APP_JWT_SECRET:}
+
+server:
+  port: ${SERVER_PORT:8080}
